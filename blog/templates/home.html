@@ -1,21 +1,23 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% block contents %}
 <br>
-
+안녕하세요
 {% for blog in posts %}
     <br>
+안녕하세여?!
+<div class="container">
+<div class="card">
+    <div class="card-body">
+    <h2 class="card-title">{{blog.title}}</h2>
+    <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
+    <p class="card-text">{{blog.summary}}</p>
+    <a href="{% url 'detail' blog.id %}" class="card-link">.... more</a>
+    </div>
+</div><br>
+</div>
+{%endfor%}
 
-    <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">{{blog.title}}</h2>
-                    <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
-                    <p class="card-text">{{blog.summary}}</p>
-                    <a href="{% url 'detail' blog.id %}">.... more</a>
-                </div>
-            </div>
-        </div>
 
 <!-- {#First Previous 3of4 Next Last#} -->
 <div class="container">
@@ -35,13 +37,5 @@
 <a href="?page={{posts.paginator.num_pages}}">Last</a>
 {%endif%}
 </div>
-
-{% endfor %}
-
-
-
-
-
-
 
 {% endblock %}
